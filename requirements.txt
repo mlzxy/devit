@@ -1,0 +1,16 @@
+cloudpickle
+diffdist==0.1
+fast_pytorch_kmeans
+fire
+matplotlib
+numpy==1.22.4
+pycocotools==2.0.6
+scikit_learn==1.3.0
+seaborn==0.12.2
+Shapely==2.0.1
+timm==0.6.13
+torch==1.13.1
+torchvision==0.14.1
+tqdm
+xformers==0.0.16 # xformers==0.0.18 works better, but 0.0.18 depends on torch2. So you need to compile xformers on your own, which is also easy btw
+ftfy==6.1.1

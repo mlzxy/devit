@@ -207,7 +207,7 @@ setup(
         # opencv themselves, preferrably by OS's package manager, or by
         # choosing the proper pypi package name at https://github.com/skvark/opencv-python
         "termcolor>=1.1",
-        "Pillow>=7.1",  # or use pillow-simd for better performance
+        "Pillow~=9.5",
         "yacs>=0.1.6",
         "tabulate",
         "cloudpickle",
