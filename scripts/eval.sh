@@ -16,13 +16,13 @@ case $task in
             --config-file configs/open-vocabulary/coco/vit${vit}.yaml \
             MODEL.WEIGHTS `ls weights/trained/open-vocabulary/coco/vit${vit}_*.pth | head -n 1` \
             DE.OFFLINE_RPN_CONFIG configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml \
-            OUTPUT_DIR output/open-vocabulary/coco/vit${vit}/ $@
+            OUTPUT_DIR output/eval/open-vocabulary/coco/vit${vit}/ $@
     else
         python3 tools/train_net.py    --num-gpus $num_gpus  --eval-only \
             --config-file  configs/open-vocabulary/lvis/vit${vit}.yaml \
             MODEL.WEIGHTS  `ls weights/trained/open-vocabulary/lvis/vit${vit}_*.pth | head -n 1` \
             DE.OFFLINE_RPN_CONFIG  configs/RPN/mask_rcnn_R_50_FPN_1x.yaml \
-            OUTPUT_DIR output/open-vocabulary/lvis/vit${vit}/ $@
+            OUTPUT_DIR output/eval/open-vocabulary/lvis/vit${vit}/ $@
     fi
     ;;
 
@@ -31,7 +31,7 @@ case $task in
             --config-file configs/few-shot/vit${vit}_shot${shot}.yaml  \
             MODEL.WEIGHTS `ls weights/trained/few-shot/vit${vit}_*.pth | head -n 1`  \
             DE.OFFLINE_RPN_CONFIG configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml \
-            OUTPUT_DIR output/few-shot/shot-${shot}/vit${vit}/  $@
+            OUTPUT_DIR output/eval/few-shot/shot-${shot}/vit${vit}/  $@
     ;;
 
     osod)
@@ -40,7 +40,7 @@ case $task in
             --config-file configs/one-shot/split${split}_vit${vit}.yaml \
             MODEL.WEIGHTS  `ls weights/trained/one-shot/vit${vit}_*.split${split}.pth | head -n 1` \
             DE.OFFLINE_RPN_CONFIG  configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml \
-            OUTPUT_DIR  output/one-shot/split${split}/vit${vit}/ \
+            OUTPUT_DIR  output/eval/one-shot/split${split}/vit${vit}/ \
             DE.ONE_SHOT_MODE  True $@
             ;;
     *)
