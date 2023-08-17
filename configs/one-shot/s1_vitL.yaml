@@ -4,7 +4,7 @@ DE:
   BG_PROTOTYPES: "weights/initial/background/background_prototypes.vitl14.pth"
 
   TOPK: 10
-  ONE_SHOT_REFERENCE: pretrained_ckpt/oneshot_reference/ref_tokens_coco17.vitl14.pth
+  ONE_SHOT_REFERENCE: weights/initial/oneshot/ref_coco17.vitl14.pth
   BG_CLS_LOSS_WEIGHT: 0.2
 
 

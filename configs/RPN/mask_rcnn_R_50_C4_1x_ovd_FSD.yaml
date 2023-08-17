@@ -1,4 +1,4 @@
-_BASE_: "../Base-RCNN-FPN.yaml"
+_BASE_: "../Base-RCNN-C4.yaml"
 MODEL:
   WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
   MASK_ON: True
@@ -9,3 +9,5 @@ MODEL:
 DATASETS:
   TRAIN: ("coco_2017_ovd_b_train",)
   TEST: ("coco_2017_ovd_b_test",)
+TEST:
+  EVAL_PERIOD: 5000

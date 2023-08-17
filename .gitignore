@@ -1,5 +1,5 @@
 # output dir
-output
+/output
 instant_test_output
 inference_test_output
 oai_clip_weights
@@ -67,5 +67,5 @@ _darcs
 tmp.*
 tensorboard
 
-weights
-datasets
+/weights
+/datasets
