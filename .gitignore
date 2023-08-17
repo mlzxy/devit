@@ -15,7 +15,6 @@ datasets/cifar-10-batches-py
 !vscode_launch.json
 !/detectron2/data/classnames/*.json
 *.diff
-*.jpg
 !/projects/DensePose/doc/images/*.jpg
 
 # compilation and distribution

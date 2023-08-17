@@ -642,10 +642,6 @@ class OpenSetDetectorWithExamples(nn.Module):
 
             feat_inp_dim = 256 if self.use_mask_feat_input else 0
 
-            print(f"!!! use_init_mask = {self.use_init_mask}, use_mask_feat_input = {self.use_mask_feat_input}, use_mask_dropout = {self.use_mask_dropout} !!!")
-
-            print(f"!!! use_mask_inst_norm={self.use_mask_inst_norm}, use_focal_mask={self.use_focal_mask} !!!")
-
             if self.use_mask_feat_input:
                 if self.use_mask_ms_feat:
                     self.mask_feat_compress = nn.ModuleList([nn.Conv2d(self.train_class_weight.shape[-1], feat_inp_dim, 1, 1, 0)
@@ -1345,7 +1341,7 @@ class OpenSetDetectorWithExamples(nn.Module):
         #%% #! Loss Finalization and Post Processing
         if self.training:
             class_labels = class_labels.long()
-            if self.mask_train_cls:
+            if not self.only_train_mask:
                 if sample_class_enabled:
                     bg_indices = class_labels == num_classes
                     fg_indices = class_labels != num_classes
@@ -1364,7 +1360,7 @@ class OpenSetDetectorWithExamples(nn.Module):
                     loss = focal_loss(logits, class_labels, num_classes=num_active_classes, bg_weight=self.bg_cls_weight)
                     loss_dict['focal_loss'] = loss
 
-            if self.mask_train_box:
+            if not self.only_train_mask:
                 gt_pred_deltas = self.box2box_transform.get_deltas(
                     fg_proposals,
                     matched_gt_boxes,

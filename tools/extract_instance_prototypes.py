@@ -6,6 +6,8 @@ from torchvision import transforms
 from typing import Sequence
 import sys
 import os.path as osp
+sys.path.append(osp.join(osp.dirname(__file__), ".."))
+
 
 from detectron2.data import build_detection_test_loader, get_detection_dataset_dicts, DatasetCatalog, MetadataCatalog
 from detectron2.data import transforms as T
@@ -127,7 +129,7 @@ def get_dataloader(dname, aug=False, split=0, idx=0):
                 max_size=1333,
             ),
         ]
-        augmentation_with_crop=None
+        augmentation_with_crop=[]
 
     dataset_dicts = get_detection_dataset_dicts(dname)
     if split > 0:
