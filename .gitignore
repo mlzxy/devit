@@ -68,3 +68,4 @@ tensorboard
 
 /weights
 /datasets
+!demo/ycb_prototypes.pth
