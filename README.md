@@ -22,36 +22,60 @@ Next, check [Downloads.md](Downloads.md) for instructions to setup datasets and 
 
 ## Running Scripts
 
-<!-- python3 ./tools/extract_instance_prototypes.py   --dataset fs_coco17_train_base    --model vits14
-
-
- python3 ./tools/run_sinkhorn_cluster.py  --inp  ./one_shot_s1.crop_paste.pkl   --epochs 10    --momentum 0.002   --num_prototypes 10
- -->
-
+Download datasets and checkpoints before running scripts.
 
 ## Demo
 
 ![](demo/output/ycb.out.jpg)
 
-```
-
-```
-
-## Evaluation 
-
 ```bash
-
+python3 ./demo/demo.py # will generate demo/output/ycb.out.jpg
 ```
+
+The notebook [demo/build_prototypes.ipynb](demo/build_prototypes.ipynb) builds prototypes for YCB objects using ViT-L/14 and our provided example images.
 
 ## Training 
 
 ```bash
+vit=l task=ovd dataset=coco bash scripts/train.sh  # train open-vocabulary COCO with ViT-L
 
+# task=ovd / fsod / osod
+# dataset=coco / lvis
+# vit=s / b / l
+
+# few-shot env var `shot = 5 / 10 / 30`
+vit=l task=fsod shot=10 bash scripts/train.sh 
+
+# one-shot env var `split = 1 / 2 / 3 / 4`
+vit=l task=osod split=1 bash script/train.sh
+
+# detectron2 options can be provided through args, e.g.,
+task=ovd dataset=lvis bash scripts/train.sh MODEL.MASK_ON True # train lvis with mask head
+
+# another env var is `num_gpus = 1 / 2 ...`, used to control
+# how many gpus are used
 ```
 
-## RPN Training
 
+## Evaluation 
+
+All evaluations can be run without training, as long as the checkpoints are downloaded.
+
+The script-level environment variables are the same to training.
+
+```bash
+vit=l task=ovd dataset=coco bash scripts/eval.sh # evaluate COCO OVD with ViT-L/14
+
+vit=l task=ovd dataset=lvis bash scripts/eval.sh DE.TOPK 3  MODEL.MASK_ON True  # evaluate LVIS OVD with ViT-L/14
 ```
+
+
+## RPN Training (COCO)
+
+```bash
+bash scripts/train_rpn.sh  ARG
+# change ARG to ovd / os1 / os2 / os3 / os4 / fs14
+# corresponds to open-vocabulary / one-shot splits 1-4 / few-shot
 ```
 
 Check [Tools.md](Tools.md) for intructions to build prototype and prepare weights.
@@ -59,7 +83,7 @@ Check [Tools.md](Tools.md) for intructions to build prototype and prepare weight
 ## Acknowledgement
 
 
-This repository was built on top of Detectron2, DINOv2, RegionCLIP. We thank the effort from our community.
+This repository was built on top of [RegionCLIP](https://github.com/microsoft/RegionCLIP) and [DINOv2](https://github.com/facebookresearch/dinov2). We thank the effort from our community.
 
 
 <!-- 

@@ -10,14 +10,14 @@ case $1 in
         then
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/open-vocabulary-coco17/base \
                     MODEL.WEIGHTS  weights/initial/rpn/open-vocabulary-coco17/rpn_coco_48.pth \
                     DATASETS.TEST '("coco_2017_ovd_b_test",)'
         else
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/open-vocabulary-coco17 \
                     MODEL.WEIGHTS weights/initial/rpn/open-vocabulary-coco17/rpn_coco_48.pth \
                     DATASETS.TEST '("coco_2017_ovd_all_test",)'
@@ -29,14 +29,14 @@ case $1 in
         then
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/one-shot-split1/base \
                     MODEL.WEIGHTS weights/initial/rpn/one-shot-split1/model_final.pth \
                     DATASETS.TEST '("coco_2017_val_oneshot_s1",)'
         else
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/one-shot-split1 \
                     MODEL.WEIGHTS weights/initial/rpn/one-shot-split1/model_final.pth \
                     DATASETS.TEST '("coco_2017_val",)'
@@ -48,14 +48,14 @@ case $1 in
         then
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/one-shot-split2/base \
                     MODEL.WEIGHTS  weights/initial/rpn/one-shot-split2/model_final.pth \
                     DATASETS.TEST '("coco_2017_val_oneshot_s2",)'
         else
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/one-shot-split2 \
                     MODEL.WEIGHTS weights/initial/rpn/one-shot-split2/model_final.pth \
                     DATASETS.TEST '("coco_2017_val",)'
@@ -67,14 +67,14 @@ case $1 in
         then
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/one-shot-split3/base \
                     MODEL.WEIGHTS weights/initial/rpn/one-shot-split3/model_final.pth \
                     DATASETS.TEST '("coco_2017_val_oneshot_s3",)'
         else
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/one-shot-split3 \
                     MODEL.WEIGHTS weights/initial/rpn/one-shot-split3/model_final.pth \
                     DATASETS.TEST '("coco_2017_val",)'
@@ -86,14 +86,14 @@ case $1 in
         then
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/one-shot-split4/base \
                     MODEL.WEIGHTS weights/initial/rpn/one-shot-split4/model_final.pth \
                     DATASETS.TEST '("coco_2017_val_oneshot_s4",)'
         else
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/one-shot-split4 \
                     MODEL.WEIGHTS  weights/initial/rpn/one-shot-split4/model_final.pth \
                     DATASETS.TEST '("coco_2017_val",)'
@@ -105,14 +105,14 @@ case $1 in
         then
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/few-shot-coco14/base \
                     MODEL.WEIGHTS weights/initial/rpn/few-shot-coco14/model_final.pth \
                     DATASETS.TEST '("fs_coco17_base_val",)'
         else
             python3 tools/train_net.py --eval-only \
                     --num-gpus 4  \
-                    --config-file  configs/COCO-Detection/rpn_R_50_C4_1x.yaml \
+                    --config-file  configs/RPN/rpn_R_50_C4_1x.yaml \
                     OUTPUT_DIR  output/rpn/few-shot-coco14 \
                     MODEL.WEIGHTS weights/initial/rpn/few-shot-coco14/model_final.pth \
                     DATASETS.TEST '("fs_coco_test_all",)'

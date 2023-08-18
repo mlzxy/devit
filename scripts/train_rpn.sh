@@ -4,7 +4,7 @@ case $1 in
         ovd)
         python3 tools/train_net.py \
                 --num-gpus 4  \
-                --config-file  configs/COCO-InstanceSegmentation/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml \
+                --config-file configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml \
                 OUTPUT_DIR  output/mrcnn_rpn_ovd 
         ;;
 
@@ -12,42 +12,35 @@ case $1 in
         os1)
         python3 tools/train_net.py \
                 --num-gpus 4  \
-                --config-file  configs/COCO-InstanceSegmentation/mask_rcnn_R_50_C4_1x_oneshot_s1.yaml \
+                --config-file  configs/RPN/mask_rcnn_R_50_C4_1x_oneshot_s1.yaml \
                 OUTPUT_DIR  output/mrcnn_rpn_oneshot_s1 \
         ;;
 
         os2)
         python3 tools/train_net.py \
                 --num-gpus 4  \
-                --config-file  configs/COCO-InstanceSegmentation/mask_rcnn_R_50_C4_1x_oneshot_s2.yaml \
+                --config-file configs/RPN/mask_rcnn_R_50_C4_1x_oneshot_s2.yaml \
                 OUTPUT_DIR  output/mrcnn_rpn_oneshot_s2 \
         ;;
 
         os3)
         python3 tools/train_net.py \
                 --num-gpus 4  \
-                --config-file  configs/COCO-InstanceSegmentation/mask_rcnn_R_50_C4_1x_oneshot_s3.yaml \
+                --config-file  configs/RPN/mask_rcnn_R_50_C4_1x_oneshot_s3.yaml \
                 OUTPUT_DIR  output/mrcnn_rpn_oneshot_s3 \
         ;;
 
         os4)
         python3 tools/train_net.py \
                 --num-gpus 4  \
-                --config-file  configs/COCO-InstanceSegmentation/mask_rcnn_R_50_C4_1x_oneshot_s4.yaml \
+                --config-file  configs/RPN/mask_rcnn_R_50_C4_1x_oneshot_s4.yaml \
                 OUTPUT_DIR  output/mrcnn_rpn_oneshot_s4 \
-        ;;
-
-        fs)
-        python3 tools/train_net.py \
-                --num-gpus 4  \
-                --config-file  configs/COCO-InstanceSegmentation/mask_rcnn_R_50_C4_1x_fewshot_17.yaml \
-                OUTPUT_DIR  output/mrcnn_rpn_fewshot17 \
         ;;
 
         fs14)
         python3 tools/train_net.py \
                 --num-gpus 4  \
-                --config-file  configs/COCO-InstanceSegmentation/mask_rcnn_R_50_C4_1x_fewshot_14.yaml \
+                --config-file configs/RPN/mask_rcnn_R_50_C4_1x_fewshot_14.yaml \
                 OUTPUT_DIR  output/mrcnn_rpn_fewshot14 \
         ;;
 

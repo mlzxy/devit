@@ -649,6 +649,53 @@ _C.SOLVER.CLIP_GRADIENTS.NORM_TYPE = 2.0
 _C.SOLVER.AMP = CN({"ENABLED": False})
 
 # ---------------------------------------------------------------------------- #
+# CLIP options (from RegionCLIP, we keep them here for legacy)
+# ---------------------------------------------------------------------------- #
+_C.MODEL.CLIP = CN()
+
+_C.MODEL.CLIP.CROP_REGION_TYPE = "" # options: "GT", "RPN" 
+_C.MODEL.CLIP.BB_RPN_WEIGHTS = None # the weights of pretrained MaskRCNN
+_C.MODEL.CLIP.IMS_PER_BATCH_TEST = 8 # the #images during inference per batch
+
+_C.MODEL.CLIP.USE_TEXT_EMB_CLASSIFIER = False # if True, use the CLIP text embedding as the classifier's weights
+_C.MODEL.CLIP.TEXT_EMB_PATH = None # "/mnt/output_storage/trained_models/lvis_cls_emb/lvis_1203_cls_emb.pth"
+_C.MODEL.CLIP.OFFLINE_RPN_CONFIG = None # option: all configs of pretrained RPN
+_C.MODEL.CLIP.NO_BOX_DELTA = False  # if True, during inference, no box delta will be applied to region proposals
+
+_C.MODEL.CLIP.BG_CLS_LOSS_WEIGHT = None # if not None, it is the loss weight for bg regions
+_C.MODEL.CLIP.ONLY_SAMPLE_FG_PROPOSALS = False  # if True, during training, ignore all bg proposals and only sample fg proposals
+_C.MODEL.CLIP.MULTIPLY_RPN_SCORE = False  # if True, during inference, multiply RPN scores with classification scores
+_C.MODEL.CLIP.VIS = False # if True, when visualizing the object scores, we convert them to the scores before multiplying RPN scores
+
+_C.MODEL.CLIP.OPENSET_TEST_NUM_CLASSES = None  # if an integer, it is #all_cls in test
+_C.MODEL.CLIP.OPENSET_TEST_TEXT_EMB_PATH = None # if not None, enables the openset/zero-shot training, the category embeddings during test
+
+_C.MODEL.CLIP.CLSS_TEMP = 0.01 # normalization + dot product + temperature
+_C.MODEL.CLIP.RUN_CVPR_OVR = False # if True, train CVPR OVR model with their text embeddings
+_C.MODEL.CLIP.FOCAL_SCALED_LOSS = None # if not None (float value for gamma), apply focal loss scaling idea to standard cross-entropy loss
+
+_C.MODEL.CLIP.OFFLINE_RPN_NMS_THRESH = None # the threshold of NMS in offline RPN
+_C.MODEL.CLIP.OFFLINE_RPN_POST_NMS_TOPK_TEST = None # the number of region proposals from offline RPN
+_C.MODEL.CLIP.PRETRAIN_IMG_TXT_LEVEL = True # if True, pretrain model using image-text level matching
+_C.MODEL.CLIP.PRETRAIN_ONLY_EOT = False # if True, use end-of-token emb to match region features, in image-text level matching
+_C.MODEL.CLIP.PRETRAIN_RPN_REGIONS = None # if not None, the number of RPN regions per image during pretraining
+_C.MODEL.CLIP.PRETRAIN_SAMPLE_REGIONS = None # if not None, the number of regions per image during pretraining after sampling, to avoid overfitting
+_C.MODEL.CLIP.GATHER_GPUS = False # if True, gather tensors across GPUS to increase batch size
+_C.MODEL.CLIP.GRID_REGIONS = False # if True, use grid boxes to extract grid features, instead of object proposals
+_C.MODEL.CLIP.CONCEPT_POOL_EMB = None # if not None, it provides the file path of embs of concept pool and thus enables region-concept matching
+_C.MODEL.CLIP.CONCEPT_THRES = None # if not None, the threshold to filter out the regions with low matching score with concept embs, dependent on temp (default: 0.01)
+
+_C.MODEL.CLIP.OFFLINE_RPN_LSJ_PRETRAINED = False # if True, use large-scale jittering (LSJ) pretrained RPN
+_C.MODEL.CLIP.TEACHER_RESNETS_DEPTH = 50 # the type of visual encoder of teacher model, sucha as ResNet 50, 101, 200 (a flag for 50x4)
+_C.MODEL.CLIP.TEACHER_CONCEPT_POOL_EMB = None # if not None, it uses the same concept embedding as student model; otherwise, uses a seperate embedding of teacher model
+_C.MODEL.CLIP.TEACHER_POOLER_RESOLUTION = 14 # RoIpooling resolution of teacher model
+
+_C.MODEL.CLIP.TEXT_EMB_DIM = 1024 # the dimension of precomputed class embeddings
+_C.INPUT_DIR = "./datasets/custom_images" # the folder that includes the images for region feature extraction
+_C.MODEL.CLIP.GET_CONCEPT_EMB = False # if True (extract concept embedding), a language encoder will be created
+
+
+# ---------------------------------------------------------------------------- #
 # Specific test options
 # ---------------------------------------------------------------------------- #
 _C.TEST = CN()
