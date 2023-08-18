@@ -15,11 +15,11 @@ rpn_dict = {
     'coco': osp.join(root, 'weights/open-vocabulary-coco17/rpn_coco_48.pth'),
     'lvis': osp.join(root, 'weights/open-vocabulary-lvis/rpn_lvis_866_lsj.pth'),
     
-    'os1': osp.join(root, 'weights/initial/rpn/one-shot-split1/model_final.pth'),  # 先训练，剩余风险 == 0
+    'os1': osp.join(root, 'weights/initial/rpn/one-shot-split1/model_final.pth'),
     'os2': osp.join(root, 'weights/initial/rpn/one-shot-split2/model_final.pth'),
     'os3': osp.join(root, 'weights/initial/rpn/one-shot-split3/model_final.pth'),
     'os4': osp.join(root, 'weights/initial/rpn/one-shot-split4/model_final.pth'),
-    'fs14': osp.join(root, 'weights/initial/rpn/few-shot-coco14/model_final.pth'),  # 先训练，剩余风险 == 0
+    'fs14': osp.join(root, 'weights/initial/rpn/few-shot-coco14/model_final.pth'),  
 }
 
 
