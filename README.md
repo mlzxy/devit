@@ -1,6 +1,6 @@
 # Detect Every Thing with Few Examples
 
-[Paper]()
+[Arxiv Paper](https://arxiv.org/abs/2309.12969)
 
 ![](images/pipeline.jpg)
 
@@ -86,13 +86,18 @@ Check [Tools.md](Tools.md) for intructions to build prototype and prepare weight
 This repository was built on top of [RegionCLIP](https://github.com/microsoft/RegionCLIP) and [DINOv2](https://github.com/facebookresearch/dinov2). We thank the effort from our community.
 
 
-<!-- 
 ## Citation
 
 ```
+@misc{zhang2023detect,
+      title={Detect Every Thing with Few Examples}, 
+      author={Xinyu Zhang and Yuting Wang and Abdeslam Boularias},
+      year={2023},
+      eprint={2309.12969},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
--->
-
 
 
 
