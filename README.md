@@ -2,6 +2,9 @@
 
 [Arxiv Paper](https://arxiv.org/abs/2309.12969)
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detect-every-thing-with-few-examples/open-vocabulary-object-detection-on-lvis-v1-0)](https://paperswithcode.com/sota/open-vocabulary-object-detection-on-lvis-v1-0?p=detect-every-thing-with-few-examples) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detect-every-thing-with-few-examples/open-vocabulary-object-detection-on-mscoco)](https://paperswithcode.com/sota/open-vocabulary-object-detection-on-mscoco?p=detect-every-thing-with-few-examples)  [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detect-every-thing-with-few-examples/few-shot-object-detection-on-ms-coco-10-shot)](https://paperswithcode.com/sota/few-shot-object-detection-on-ms-coco-10-shot?p=detect-every-thing-with-few-examples)  [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detect-every-thing-with-few-examples/few-shot-object-detection-on-ms-coco-30-shot)](https://paperswithcode.com/sota/few-shot-object-detection-on-ms-coco-30-shot?p=detect-every-thing-with-few-examples)   [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detect-every-thing-with-few-examples/one-shot-object-detection-on-coco)](https://paperswithcode.com/sota/one-shot-object-detection-on-coco?p=detect-every-thing-with-few-examples)
+
+
 ![](images/pipeline.jpg)
 
 We present DE-ViT, an open-set object detector in this repository.
