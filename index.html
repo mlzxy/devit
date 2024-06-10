@@ -12,9 +12,9 @@
   <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
-  <title>Title</title>
+  <title>Few-shot Object Detection without Fine-tuning</title>
   <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
-  <link rel="icon" type="image/png" sizes="96x96" href="static/images/favicon-96x96.png">
+  <!-- <link rel="icon" type="image/png" sizes="96x96" href="static/images/favicon-96x96.png"> -->
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -42,7 +42,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Paper Title</h1>
+            <h1 class="title is-1 publication-title">Few-shot Object Detection without Fine-tuning</h1>
 
 
             <div class="is-size-5 publication-authors">
@@ -128,7 +128,7 @@
 
 
 <!-- Teaser video-->
-<!-- <section class="hero teaser">
+<section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video poster="" id="tree" autoplay controls muted loop height="100%">
@@ -140,7 +140,7 @@
       </h2>
     </div>
   </div>
-</section> -->
+</section>
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
@@ -151,7 +151,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Abstract
+            Few-shot object detection aims at learning novel categories given only a few example images. It is a basic skill for a robot that performs tasks in open environments. Recent methods focus on finetuning strategies, with complicated procedures that prohibit a wider application. In this paper, we introduce DE-ViT, a few-shot object detector without the need for finetuning. DE-ViT ’s novel architecture is based on a new region-propagation mechanism for localization. The propagated region masks are transformed into bounding boxes through a learnable spatial integral layer. Instead of training prototype classifiers, we propose to use prototypes to project ViT features into a subspace that is robust to overfitting on base classes. We evaluate DE-ViT on few-shot, and one-shot object detection benchmarks with Pascal VOC, COCO, and LVIS. DE-ViT establishes new state-of-the-art results on all benchmarks. Notably, for COCO, DE-ViT surpasses the few-shot SoTA by 15 mAP on 10-shot and 7.2 mAP on 30-shot and one-shot SoTA by 2.8 AP50. For LVIS, DE-ViT outperforms few-shot SoTA by 17 box APr. Further, we evaluate DE-ViT with a real robot by building a pick-and-place system for sorting novel objects based on example images. The source code and the models of DE-ViT are included in the supplementary material.
           </p>
         </div>
       </div>
@@ -161,19 +161,19 @@
 <!-- End paper abstract -->
 
 
-<!-- <section class="hero is-small">
-  <div class="hero-body">
+<section class="hero is-small">
+  <div class="hero-body" >
     <div class="container">
-      <h2 class="title is-3">State of the Art Performance on RLBench</h2>
-        <div class="item">
-          <img src="static/images/rlbench_base.png" width="80%" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
+      <h2 class="title is-3">Method Overview</h2>
+        <div class="item" style="text-align: center;">
+          <img src="static/images/method.png" width="80%" alt="MY ALT TEXT"/>
+        <!-- <h2 class="subtitle has-text-centered">
           First image description.
-        </h2>
+        </h2> -->
         </div>
     </div>
   </div>
-</section>  -->
+</section> 
 
 
 
@@ -235,57 +235,57 @@
 
 
 <!-- TODO: Video carousel -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Carousal Title</h2>
       <div id="results-carousel" class="carousel results-carousel">
-        
-        <!-- <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <source src="static/videos/rb1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <source src="static/videos/rb2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <source src="static/videos/rb3.mp4"
-            type="video/mp4">
-          </video>
-        </div> -->
 
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End video carousel -->
 
+
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3"> Experiment Results </h2>
+        <div class="item item-video1">
+        </div>
+    </div>
+  </div>
+</section>   -->
 
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <!-- <h2 class="title is-3">One-shot Sim2Real Transfer </h2> -->
-        <div class="item item-video1">
-          <!-- <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <source src="static/videos/real.mp4"
-            type="video/mp4">
-          </video> -->
-       
-          <h2 class="subtitle has-text-centered">
-            video subtitle
-        </h2>
-        </div>
+      <h2 class="title is-3">Experiments</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/coco.jpg" alt="MY ALT TEXT"/>
+        <!-- <h2 class="subtitle has-text-centered">
+          First image description.
+        </h2> -->
+      </div>
+      <div class="item">
+        <img src="static/images/pascalvoc.jpg" alt="MY ALT TEXT"/>
+        <!-- <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2> -->
+      </div>
+      <div class="item">
+        <img src="static/images/lvis.jpg" alt="MY ALT TEXT"/>
+        <!-- <h2 class="subtitle has-text-centered">
+         Third image description.
+       </h2> -->
+     </div>
     </div>
   </div>
-</section>  
-
-
+</div>
+</div>
+</section> 
 
 <!-- TODO: Paper poster -->
 <!-- <section class="hero is-small is-light">
