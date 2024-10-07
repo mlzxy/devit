@@ -27,11 +27,20 @@ case $task in
     ;;
 
     fsod)
+    if [[ "$dataset" == "coco" ]]
+    then 
         python3 tools/train_net.py --num-gpus $num_gpus --eval-only \
             --config-file configs/few-shot/vit${vit}_shot${shot}.yaml  \
             MODEL.WEIGHTS `ls weights/trained/few-shot/vit${vit}_*.pth | head -n 1`  \
             DE.OFFLINE_RPN_CONFIG configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml \
             OUTPUT_DIR output/eval/few-shot/shot-${shot}/vit${vit}/  $@
+    else
+        python3 tools/train_net.py --num-gpus $num_gpus --eval-only \
+            --config-file configs/few-shot-voc/${shot}shot/vit${vit}_${split}s.yaml  \
+            MODEL.WEIGHTS `ls weights/trained/few-shot-voc/${split}/vit${vit}_*.pth | head -n 1`  \
+            DE.OFFLINE_RPN_CONFIG configs/VOC_RPN/faster_rcnn_R_50_C4.few_shot_s1.yaml \
+            OUTPUT_DIR output/eval/few-shot-voc/${shot}shot/${split}/vit${vit}/  $@
+    fi
     ;;
 
     osod)

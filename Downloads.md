@@ -1,20 +1,19 @@
 # Download
 
-All datasets and model checkpoints are stored in 
-https://drive.google.com/drive/folders/1b3anUR2Gloh7XpvevPCuxWeYCvQJ7Pfz.
+All datasets and model checkpoints are stored in https://rutgers.box.com/s/2lco6ab66pn3ufq6rh4gmyfzg9vfkm23. To download all files efficiently, there is a large `all_datasets_and_weights.tar.gz` file in that box link that includes all datasets and weights. 
 
-You can download all of them using [gdown](https://github.com/wkentaro/gdown)
 
 ```bash
 cd devit
-pip install gdown
-gdown 1b3anUR2Gloh7XpvevPCuxWeYCvQJ7Pfz --folder
-# will download a folder called `release`
+
+# download the `all_datasets_and_weights.tar.gz` from box
+
+tar xvf all_datasets_and_weights.tar.gz # will create a folder called `release`
 mv release/weights release/datasets .
-rm -rf release
+rm -rf release all_datasets_and_weights.tar.gz
 ```
 
-> If `gdown` shows error like `Access denied with the following error: Cannot retrieve the public link of the file. You may need to change the permission to "Anyone with the link", or have had many accesses`, please try use `rclone` with more instructions from [issue#7](https://github.com/mlzxy/devit/issues/7). 
+>use `rclone` with more instructions from [issue#7](https://github.com/mlzxy/devit/issues/7). 
 
 
 ## Datasets Preparation (folder `datasets`)
@@ -60,11 +59,12 @@ Instructions:
 ```bash
 mv datasets/coco/annotations/* $DETECTRON2_DATASETS/coco/annotations/
 mv datasets/lvis/* $DETECTRON2_DATASETS/lvis
+unzip datasets/vocsplit.zip -d $DETECTRON2_DATASETS
 tar xvf datasets/cocosplit2017.tar.gz  -C  $DETECTRON2_DATASETS
 tar xvf datasets/cocosplit.tar.gz -C $DETECTRON2_DATASETS
 ```
 
-Note that you need to first setup COCO14/17 and LVIS in your detectron2 datasets folder. 
+Note that you need to first setup COCO14/17, Pascal VOC, and LVIS in your detectron2 datasets folder. 
 
 
 ## Checkpoint Structures (folder `weights`)

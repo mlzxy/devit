@@ -50,6 +50,22 @@ from lib.regionprop import augment_rois, region_coord_2_abs_coord, abs_coord_2_r
 from lib.categories import SEEN_CLS_DICT, ALL_CLS_DICT
 
 
+def elementwise_box_iou(boxes1, boxes2) -> Tuple[torch.Tensor]:
+    area1 = box_area(boxes1)
+    area2 = box_area(boxes2)
+
+    lt = torch.max(boxes1[:, None, :2], boxes2[:, :2])  # [N,M,2]
+    rb = torch.min(boxes1[:, None, 2:], boxes2[:, 2:])  # [N,M,2]
+
+    wh = (rb - lt).clamp(min=0)  # [N,M,2]
+    inter = wh[:, :, 0] * wh[:, :, 1]  # [N,M]
+
+    union = area1[:, None] + area2 - inter
+
+    iou = inter / (union + 1e-6)
+    return iou, union
+
+
 def generalized_box_iou(boxes1, boxes2) -> torch.Tensor:
     """
     Generalized IoU from https://giou.stanford.edu/
@@ -69,7 +85,7 @@ def generalized_box_iou(boxes1, boxes2) -> torch.Tensor:
 
     assert (boxes1[:, 2:] >= boxes1[:, :2]).all()
     assert (boxes2[:, 2:] >= boxes2[:, :2]).all()
-    iou, union = box_iou(boxes1, boxes2)
+    iou, union = elementwise_box_iou(boxes1, boxes2)
 
     lt = torch.min(boxes1[:, None, :2], boxes2[:, :2])
     rb = torch.max(boxes1[:, None, 2:], boxes2[:, 2:])
@@ -827,7 +843,7 @@ class OpenSetDetectorWithExamples(nn.Module):
                 torch.randint_like(box_ccwh, low=0, high=2, dtype=torch.float32) * 2.0 - 1.0
             ) 
             rand_part = torch.rand_like(box_ccwh) * rand_sign
-            box_ccwh = box_ccwh + torch.mul(rand_part, diff).cuda() * self.box_noise_scale
+            box_ccwh = box_ccwh + torch.mul(rand_part, diff).to(box_ccwh.device) * self.box_noise_scale
 
             noisy_box = box_cxcywh_to_xyxy(box_ccwh)
 
@@ -1323,8 +1339,8 @@ class OpenSetDetectorWithExamples(nn.Module):
                         loss_dict[f'rg_giou_loss_{i}'] = (1 - torch.diag(generalized_box_iou(
                                         box_cxcywh_to_xyxy(pred_region_coords),
                                         box_cxcywh_to_xyxy(gt_region_coords)))).mean()
-                    except:
-                        pass
+                    except Exception as e:
+                        print(f'skip exception in giou losses: {e}')
 
             # pred_region_coords -> final region coords
             pred_abs_boxes = region_coord_2_abs_coord(aug_rois[:, 1:], pred_region_coords, self.reg_roialign_size)

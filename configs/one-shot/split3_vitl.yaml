@@ -31,7 +31,7 @@ MODEL:
 INPUT:
   MIN_SIZE_TRAIN: (640, 672, 704, 736, 768, 800)
 DATASETS:
-  TRAIN: ("coco_2017_train_oneshot_s1",)
+  TRAIN: ("coco_2017_train_oneshot_s3",)
   TEST: ("coco_2017_val",)
 TEST:
   EVAL_PERIOD: 5000

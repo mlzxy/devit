@@ -13,6 +13,6 @@ from .clip_rcnn import CLIPFastRCNN, PretrainFastRCNN
 
 
 from .devit import OpenSetDetectorWithExamples
-
+from .devit_update import OpenSetDetectorWithExamples_refactored
 
 __all__ = list(globals().keys())

@@ -35,7 +35,6 @@ from detectron2.evaluation import (
     COCOPanopticEvaluator,
     DatasetEvaluators,
     LVISEvaluator,
-    PascalVOCDetectionEvaluator,
     SemSegEvaluator,
     verify_results,
 )
@@ -49,6 +48,8 @@ torch.multiprocessing.set_sharing_strategy('file_system')
 
 import lib.data.fewshot
 import lib.data.ovdshot
+import lib.data.fsdata_voc
+
 from lib.categories import SEEN_CLS_DICT, ALL_CLS_DICT
 
 from collections import defaultdict
@@ -56,6 +57,7 @@ from collections import defaultdict
 import numpy as np
 
 from detectron2.evaluation.evaluator import DatasetEvaluator
+from lib.voc_eval import PascalVOCDetectionEvaluator
 from detectron2.data.datasets.coco_zeroshot_categories import COCO_SEEN_CLS, \
     COCO_UNSEEN_CLS, COCO_OVD_ALL_CLS
     
@@ -88,12 +90,15 @@ class Trainer(DefaultTrainer):
             if 'lvis' in dataset_name:
                 evaluator_list.append(LVISEvaluator(dataset_name, output_dir=output_folder))
             else:
-                dtrain_name = cfg.DATASETS.TRAIN[0]
-                seen_cnames = SEEN_CLS_DICT[dtrain_name]
-                all_cnames = ALL_CLS_DICT[dtrain_name]
-                unseen_cnames = [c for c in all_cnames if c not in seen_cnames]
-                evaluator_list.append(COCOEvaluator(dataset_name, output_dir=output_folder, few_shot_mode=True,
-                                                    seen_cnames=seen_cnames, unseen_cnames=unseen_cnames, all_cnames=all_cnames))
+                if 'voc' in dataset_name:
+                    evaluator_list.append(PascalVOCDetectionEvaluator(dataset_name))
+                else:
+                    dtrain_name = cfg.DATASETS.TRAIN[0]
+                    seen_cnames = SEEN_CLS_DICT[dtrain_name]
+                    all_cnames = ALL_CLS_DICT[dtrain_name]
+                    unseen_cnames = [c for c in all_cnames if c not in seen_cnames]
+                    evaluator_list.append(COCOEvaluator(dataset_name, output_dir=output_folder, few_shot_mode=True,
+                                                        seen_cnames=seen_cnames, unseen_cnames=unseen_cnames, all_cnames=all_cnames))
             return DatasetEvaluators(evaluator_list)
     
 
