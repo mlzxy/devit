@@ -1,6 +1,6 @@
 # Detect Every Thing with Few Examples
 
-**Accepted at CoRL 2024.**  [Arxiv](https://arxiv.org/abs/2309.12969)  
+[![arXiv](https://img.shields.io/badge/arXiv-2309.12969-b31b1b.svg)](https://arxiv.org/abs/2309.12969) **Accepted at CoRL 2024.**   
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detect-every-thing-with-few-examples/open-vocabulary-object-detection-on-lvis-v1-0)](https://paperswithcode.com/sota/open-vocabulary-object-detection-on-lvis-v1-0?p=detect-every-thing-with-few-examples) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detect-every-thing-with-few-examples/open-vocabulary-object-detection-on-mscoco)](https://paperswithcode.com/sota/open-vocabulary-object-detection-on-mscoco?p=detect-every-thing-with-few-examples)  [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detect-every-thing-with-few-examples/few-shot-object-detection-on-ms-coco-10-shot)](https://paperswithcode.com/sota/few-shot-object-detection-on-ms-coco-10-shot?p=detect-every-thing-with-few-examples)  [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detect-every-thing-with-few-examples/few-shot-object-detection-on-ms-coco-30-shot)](https://paperswithcode.com/sota/few-shot-object-detection-on-ms-coco-30-shot?p=detect-every-thing-with-few-examples)   [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detect-every-thing-with-few-examples/one-shot-object-detection-on-coco)](https://paperswithcode.com/sota/one-shot-object-detection-on-coco?p=detect-every-thing-with-few-examples)
 
@@ -9,7 +9,8 @@ We present DE-ViT, an open-set object detector in this repository.
 In contrast to the popular open-vocabulary approach, we follow the few-shot formulation to represent each category with few support images rather than language. Our results shows potential for using images as category representation. 
 DE-ViT establishes new state-of-the-art on open-vocabulary, few-shot, and one-shot object detection benchmark with COCO and LVIS.
 
-https://raw.githubusercontent.com/mlzxy/devit/main/images/demo.mp4
+
+https://github.com/user-attachments/assets/2aab77f0-73cc-4ddd-a091-2c6fff27eb04
 
 
 ## Installation
