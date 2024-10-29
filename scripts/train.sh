@@ -18,7 +18,7 @@ case $task in
             DE.OFFLINE_RPN_CONFIG configs/RPN/mask_rcnn_R_50_C4_1x_ovd_FSD.yaml \
             OUTPUT_DIR output/train/open-vocabulary/coco/vit${vit}/ $@
     else
-        python3 tools/train_net.py    --num-gpus $num_gpus  --eval-only \
+        python3 tools/train_net.py    --num-gpus $num_gpus  \
             --config-file  configs/open-vocabulary/lvis/vit${vit}.yaml \
             MODEL.WEIGHTS  weights/initial/open-vocabulary/vit${vit}+rpn_lvis.pth \
             DE.OFFLINE_RPN_CONFIG  configs/RPN/mask_rcnn_R_50_FPN_1x.yaml \
